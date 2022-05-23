@@ -1,6 +1,5 @@
 import React from "react";
-import Slider1 from "../../../assets/images/slider-images/slider-1.jpg";
-import Slider2 from "../../../assets/images/slider-images/slider-2.jpg";
+import Slider1 from "../../assets/images/slider-images/slider-1.jpg"
 
 const Slider = () => {
   return (
