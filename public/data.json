@@ -1,0 +1,65 @@
+[
+    {
+      "_id": "1",
+      "picture": "https://i.ibb.co/LJ8ds7L/product-4.png",
+      "name": "Hanging 4K Camera",
+      "description": "Pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circles",
+      "price": 325,
+      "quantity": 29,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "2",
+      "picture": "https://i.ibb.co/Yt5Q2wV/product4.jpg",
+      "name": "Brake Caliper Paint System Kit",
+      "description": "Samsung Galaxy A23 comes with 6.6 inches Full HD+ PLS TFT screen. It has a waterdrop notch front camera design.",
+      "price": 160,
+      "quantity": 37,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "3",
+      "picture": "https://i.ibb.co/y0pHrJX/product5.jpg",
+      "name": "Shell Helix ULTRA Motor Oil",
+      "description": "Xiaomi Redmi 10C comes with 6.71 inches HD+ screen. It has a Full-View waterdrop notch design.",
+      "price": 290,
+      "quantity": 25,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "4",
+      "picture": "https://i.ibb.co/Pzps2PT/product6.jpg",
+      "name": "Bridgestone Potenza S001 RFT",
+      "description": "Oppo A16e comes with 6.52 inches HD+ screen. It has a Full-View waterdrop notch design.",
+      "price": 216,
+      "quantity": 38,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "5",
+      "picture": "https://i.ibb.co/25SGsdS/product7.jpg",
+      "name": "Duralast Brake Rotor",
+      "description": "Infinix Note 12 comes with 6.7 inches Full HD+ AMOLED screen. It has a waterdrop notch front camera design.",
+      "price": 18299,
+      "quantity": 36,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "6",
+      "picture": "https://i.ibb.co/88kkVdS/product8.jpg",
+      "name": "Oil Filter Illustrations & Vectors",
+      "description": "Xiaomi Redmi 10A comes with 6.53 inches HD+ screen. It has a Full-View waterdrop notch design.",
+      "price": 11999,
+      "quantity": 30,
+      "minimum_quantity": "5"
+    },
+    {
+      "_id": "7",
+      "picture": "https://i.ibb.co/FxsjPsX/product-7.png",
+      "name": "car Engine Piston",
+      "description": "Xiaomi 12 Pro comes with 6.73 inches Quad HD+ LTPO AMOLED screen. It has a Full-View center punch-hole design.",
+      "price": 109999,
+      "quantity": 39,
+      "minimum_quantity": "5"
+    }
+  ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import SectionTitle from '../Title/SectionTitle';
 
-const HomeParts = () => {
+const HomeProducts = () => {
     return (
         <div>
             <SectionTitle>Parts</SectionTitle>
@@ -9,4 +9,4 @@ const HomeParts = () => {
     );
 };
 
-export default HomeParts;
+export default HomeProducts;
