@@ -1,16 +1,15 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ShowProducts = ({ product }) => {
-  const { _id, picture, name, description, price, quantity, minimum_quantity } =
+const ShowProducts = ({product}) => {
+    const { _id, picture, name, description, price, quantity, minimum_quantity } =
     product;
   const navigate = useNavigate();
   const handleNavigateToPurchase = (id) => {
     navigate(`/product/${id}`);
   };
-
-  return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    return (
+        <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
         <img className="" src={picture} alt="iPhone" />
       </figure>
@@ -27,7 +26,7 @@ const ShowProducts = ({ product }) => {
         </div>
       </div>
     </div>
-  );
+    );
 };
 
 export default ShowProducts;
