@@ -5,11 +5,11 @@ const ShowReview = ({ review }) => {
     return (
         <div>
             <div className='border border-gray-400 m-5 h-72  rounded-3xl'>
-                <div className='m-10'>
+                <div className='m-10 text-center'>
                 <img className='mx-auto rounded-3xl w-14 drop-shadow-lg' src={img} alt="" />
                 <h1 className='text-xl font-bold m-3'>{name}</h1>
-                <p className='text-lg font-thin'>{reviewTitle}</p>
                 <p className='font-bold m-2'>Rating: ( {rating} )</p>
+                <p className='text-lg font-thin'>{reviewTitle}</p>
                 </div>
             </div>
         </div>

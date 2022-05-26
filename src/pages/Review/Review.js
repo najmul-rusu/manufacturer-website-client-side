@@ -8,9 +8,7 @@ const Review = () => {
     const SeeAllBtn = useNavigate()
     return (
         <div>
-            <h2 className='mt-20 text-3xl font-bold'>Customer Reviews</h2>
-            <div>
-                <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-3 px-12'>
                     {
                         reviews.slice(0, 3).map(review => <ShowReview
                             review={review}
@@ -18,11 +16,7 @@ const Review = () => {
                         ></ShowReview>)
                     }
                 </div>
-                <button className='bg-blue-500  text-white py-2 px-10 text-lg rounded my-3 mb-10' onClick={() => SeeAllBtn('/reviews')}>See All Review</button>
-
             </div>
-
-        </div>
     );
 };
 
