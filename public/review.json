@@ -1,0 +1,44 @@
+[
+    {
+      "id": "624ab903f85f6842e622b096",
+      "img": "/images/a.png",
+      "name": "Carver Slater",
+      "reviewTitle": "Super bike and super customer service.",
+      "rating": 3
+    },
+    {
+      "id": "624ab903506b637c92e49187",
+      "img": "/Images/b.png",
+      "name": "Lynn Christensen",
+      "reviewTitle": "WOW - We Love them - Galaxy for wife and Aurora for Me.",
+      "rating": 5
+    },
+    {
+      "id": "624ab903908d097adf3b854a",
+      "img": "/Images/c.png",
+      "name": "Dickerson Wiley",
+      "reviewTitle": "Shop for the people behind the price",
+      "rating": 4
+    },
+    {
+      "id": "624ab90365e942b9f90780e2",
+      "img": "/Images/d.png",
+      "name": " Peter Chan",
+      "reviewTitle": "Love my Aurora even after major surgery!",
+      "rating": 5
+    },
+    {
+      "id": "624ab9035784f0534b510ab8",
+      "img": "/Images/e.png",
+      "name": "Carpenter Ballard",
+      "reviewTitle": "One of the best folding bikes out there!",
+      "rating": 3
+    },
+    {
+      "id": "624ab903f683730beab40fa7",
+      "img": "/Images/f.png",
+      "name": "Holden Kerr",
+      "reviewTitle": "Top Quality, superb handling, and cutting edge technology",
+      "rating": 3
+    }
+  ]
