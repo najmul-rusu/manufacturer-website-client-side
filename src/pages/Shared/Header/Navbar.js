@@ -6,9 +6,13 @@ import auth from "../../../firebase.init";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
-    const logout = () => {
+    /* const logout = () => {
         signOut(auth);
-    };
+    }; */
+    const logout = () => {
+      signOut(auth);
+      localStorage.removeItem('accessToken');
+  };
   const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/purchase">Purchase</Link></li>

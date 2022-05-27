@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hook/useToken';
 import Loading from '../../Shared/Loading';
 const Register = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -19,6 +20,14 @@ const Register = () => {
 
     const navigate = useNavigate();
 
+
+    //user info save krbo
+    const [token] = useToken(user || gUser);
+
+
+
+
+
     let signInError;
     if (error || gError || updating) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small> </p>
@@ -29,7 +38,7 @@ const Register = () => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
         console.log('updated');
-        navigate('/home')
+        // navigate('/home')
     }
 
     if (loading || gLoading || updating) {
@@ -38,8 +47,14 @@ const Register = () => {
     if (gUser || user) {
         console.log(gUser || user)
     }
+
+    if (token) {
+        navigate('/home');
+    }
+
+
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>

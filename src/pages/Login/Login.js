@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../../hook/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -15,16 +16,31 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
+    const [token] = useToken(user || gUser); // token
+
+
+
+
+
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
+    // useEffect(() => {
+    //     if (gUser || user) {
+    //         navigate(from, { replace: true });
+    //     }
+    // }, [user, gUser, from, navigate])
+
+    // effect with token
     useEffect(() => {
-        if (gUser || user) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, gUser, from, navigate])
+    }, [token, from, navigate])
+
 
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small> </p>
@@ -37,7 +53,7 @@ const Login = () => {
 
 
     if (loading || gLoading) {
-        return <Loading/>
+        return <Loading></Loading>
     }
     return (
         <div className='flex h-screen justify-center items-center'>

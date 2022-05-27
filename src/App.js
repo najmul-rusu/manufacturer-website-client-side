@@ -7,9 +7,8 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import RequireAuth from "./pages/Login/RequireAuth/RequireAuth";
-import MyOrder from "./pages/MyOrder/MyOrder";
 import MyPortfolio from "./pages/MyPortfolio/MyPortfolio";
-import MyProfile from "./pages/MyProfile/MyProfile";
+import Payment from "./pages/Payment/Payment";
 import Purchase from "./pages/Purchase/Purchase";
 import Footer from "./pages/Shared/Footer/Footer";
 import Navbar from "./pages/Shared/Header/Navbar";
@@ -34,22 +33,7 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
-          path="/my-profile"
-          element={
-            <RequireAuth>
-              <MyProfile />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/my-order"
-          element={
-            <RequireAuth>
-              <MyOrder />
-            </RequireAuth>
-          }
-        />
+        <Route path="/payment" element={<Payment/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
