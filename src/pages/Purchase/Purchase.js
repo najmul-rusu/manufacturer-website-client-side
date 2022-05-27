@@ -7,7 +7,6 @@ const Purchase = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [res, setRes] = useState({});
-  const [reStock, setReStock] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:5000/product/${productId}`;
@@ -15,8 +14,11 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productId, res]);
-  const { name, picture, description, price, quantity, minimum_quantity } =
-    product;
+  const {_id, name, picture, price, quantity, minimum_quantity } = product;
+
+  const handleNavigateToPurchase = (id) => {
+    navigate(`/payment/${id}`);
+  };
 
   return (
     <div className="px-12">
@@ -76,7 +78,7 @@ const Purchase = () => {
           
           
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Purchase</button>
+            <button className="btn btn-primary" onClick={()=>handleNavigateToPurchase(_id)}>Purchase</button>
           </div>
         </div>
         <div>

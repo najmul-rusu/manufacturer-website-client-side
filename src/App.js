@@ -33,7 +33,7 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/payment" element={<Payment/>} />
+        <Route path="/payment/:paymentId" element={<Payment/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
