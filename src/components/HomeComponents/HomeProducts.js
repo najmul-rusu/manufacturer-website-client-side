@@ -8,9 +8,9 @@ const HomeProducts = () => {
     const [products] = ProductsData();
     
     return (
-      <div className="px-12">
-          <SectionTitle>Parts</SectionTitle>
-        <div className="grid grid-cols-3 gap-10">
+      <div className="lg:px-12">
+          <SectionTitle>New Parts</SectionTitle>
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
             {products.map((product) => (
               <ShowProducts
                 product={product}

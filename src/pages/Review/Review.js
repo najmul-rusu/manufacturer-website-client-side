@@ -8,7 +8,7 @@ const Review = () => {
     const SeeAllBtn = useNavigate()
     return (
         <div>
-            <div className='grid grid-cols-3 px-12'>
+            <div className='grid lg:grid-cols-3 grid-cols-1 px-12'>
                     {
                         reviews.slice(0, 3).map(review => <ShowReview
                             review={review}

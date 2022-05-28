@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 import PageTitle from '../../components/Title/PageTitle';
 
 const AddProduct = () => {
@@ -7,6 +8,7 @@ const AddProduct = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data =>{
+        swal("Good job!", "Your product added", "success");
         console.log(data);
         const url=`http://localhost:5000/addproduct`;
         fetch(url,{
@@ -38,7 +40,7 @@ const AddProduct = () => {
             <input type="number" name='available' placeholder="Available products" className="input input-bordered w-full mb-3" {...register("quantity")} />
             <input type="number" name='price' placeholder="Price" className="input input-bordered w-full mb-3" {...register('price')} />
             <textarea type="text" name='description' placeholder="Description" className="textarea textarea-bordered w-full mb-3" {...register('description')}/>
-            <input type="submit" value="Add Products" className='btn bg-primary font-bold border-none w-full text-white'/>
+            <input type="submit" value="Add Product" className='btn bg-primary font-bold border-none w-full text-white'/>
             </form>
             </div>
             

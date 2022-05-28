@@ -2,31 +2,28 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useProduct from "../../hook/useProduct";
 
-const ShowManageProducts = ({product}) => {
+const ShowManageProducts = ({ product, setManageProduct }) => {
   const { _id, picture, name, description, price, quantity, minimum_quantity } =
     product;
 
-    const [products, setproducts] = useProduct();
-    const navigate = useNavigate();
-        
-        const handleDelete = id => {
-    
-            const proceed = window.confirm('Are you Sure?');
-            if (proceed) {
-                const url = `http://localhost:5000/product/${id}`;
-                fetch(url, {
-                    method: 'DELETE'
-                })
+  const [products, setproducts] = useProduct();
+  const navigate = useNavigate();
 
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        const remaining = products.filter(product => product._id !== id)
-                        setproducts(remaining)
-                    })
-
-            }
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you Sure?");
+    if (proceed) {
+      const url = `http://localhost:5000/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = products.filter((product) => product._id !== id);
+          setproducts(remaining);
+        });
     }
+  };
 
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -41,14 +38,13 @@ const ShowManageProducts = ({product}) => {
         </p>
         <p className="card-text font-bold">Price : ${price}</p>
         <p className="card-text pb-4">{description}</p>
-        <div className="card-actions ">
-          <button
-            className="btn btn-primary w-full"
-            onClick={() => handleDelete(_id)}
-          >
-            DELETE PRODUCT
-          </button>
-        </div>
+        <label
+          onClick={() => handleDelete(_id)}
+          for="delete-modal"
+          class="btn bg-primary font-bold border-none text-white"
+        >
+          DELETE PRODUCT
+        </label>
       </div>
     </div>
   );

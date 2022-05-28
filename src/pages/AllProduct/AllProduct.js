@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ShowManageProducts from '../../components/Products/ShowManageProducts';
 import PageTitle from '../../components/Title/PageTitle';
 import useProduct from '../../hook/useProduct';
-
 const AllProduct = () => {
     const [products] = useProduct();
     return (
