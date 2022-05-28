@@ -2,7 +2,9 @@ import React from "react";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import "./App.css";
+import AllProduct from "./pages/AllProduct/AllProduct";
 import Blog from "./pages/Blog/Blog";
+import AddProduct from "./pages/Dashbord/AddProduct";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register/Register";
@@ -23,6 +25,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
+        <Route path="/all-products" element={<AllProduct />} />
+        <Route path="/add-product" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route

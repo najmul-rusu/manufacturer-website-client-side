@@ -1,9 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-const CheckoutForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [cardError, setCardError] = useState("");
+
+const CheckoutForm = (product) => {
+    const stripe = useStripe();
+    const elements = useElements();
+    const [cardError, setCardError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+
+    const { _id, price, patient, patientName } = product;
+
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ price })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.clientSecret) {
+                    setClientSecret(data.clientSecret);
+                }
+            });
+
+    }, [price])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,7 +69,7 @@ const CheckoutForm = () => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe}>
+        <button type="submit" disabled={!stripe || !clientSecret}>
           Pay
         </button>
       </form>

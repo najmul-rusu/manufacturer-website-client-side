@@ -6,11 +6,12 @@ import SectionTitle from '../Title/SectionTitle';
 const HomeProducts = () => {
     
     const [products] = ProductsData();
+    
     return (
       <div className="px-12">
           <SectionTitle>Parts</SectionTitle>
         <div className="grid grid-cols-3 gap-10">
-            {products.slice(0, 6).map((product) => (
+            {products.map((product) => (
               <ShowProducts
                 product={product}
                 key={product._id}
