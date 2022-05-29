@@ -6,7 +6,7 @@ const AddProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `https://mighty-beach-10745.herokuapp.com/addproduct`;
+        const url = `https://shielded-retreat-18256.herokuapp.com/addproduct`;
         fetch(url, {
             method: 'POST',
             headers: {

@@ -14,12 +14,12 @@ const Payment = () => {
     const [res, setRes] = useState({});
 
     useEffect(() => {
-      const url = `http://localhost:5000/product/${paymentId}`;
+      const url = `https://shielded-retreat-18256.herokuapp.com/product/${paymentId}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setProduct(data));
     }, [paymentId, res]);
-    const { name, picture, price, quantity,} = product;
+    // const { name, picture, price, quantity,} = product;
 
     /* const { data: product, isLoading } = useQuery(['booking', paymentId], () => fetch(url, {
         method: 'GET',
@@ -33,7 +33,7 @@ const Payment = () => {
     }
    */
     return (
-      <div className="px-12">
+      <div className="lg:px-12 px-5 py-10 lg:m-20">
         <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10">
           <div>
             <figure>

@@ -1,42 +1,53 @@
-import React from "react";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
-import "./App.css";
-import Navbar from "./pages/Shared/Header/Navbar";
-import Home from "./pages/Home/Home";
-import Blog from "./pages/Blog/Blog"
-import MyPortfolio from "./pages/MyPortfolio/MyPortfolio"
-import AllProduct from "./pages/AllProduct/AllProduct"
-import AddProduct from "./pages/Dashboard/AddProduct/AddProduct"
-import Login from "./pages/Login/Login"
-import Register from "./pages/Login/Register/Register"
-import RequireAuth from "./pages/Login/RequireAuth/RequireAuth"
-import Dashboard from "./pages/Dashboard/Dashboard"
-import MyProfile from "./pages/Dashboard/MyProfile/MyProfile"
-import RequireAdmin from "./pages/Login/RequireAdmin"
-import Users from "./pages/Dashboard/Users/Users"
-import AllOrder from "./pages/Dashboard/AllOrders/AllOrders"
-import ManageProduct from "./pages/Dashboard/ManageProducts/ManageProducts"
-import AddNewReview from "./pages/Dashboard/AddNewReview/AddNewReview"
-import Purchase from "./pages/Purchase/Purchase"
-import Payment from "./pages/Payment/Payment"
-import NotFound from "./pages/Shared/NotFound/NotFound"
-import Footer from "./pages/Shared/Footer/Footer"
+import logo from './logo.svg';
+import './App.css';
+import Header from './Pages/Shared/Header/Header';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home/Home/Home';
+import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp/SignUp';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+
+
+import AddAReview from './Pages/Home/AddAReview/AddAReview';
+import Footer from './Pages/Shared/Footer/Footer';
+import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
+import NotFound from './Pages/Shared/NotFound/NotFound';
+import Users from './Pages/Dashboard/Users/Users';
+import Purchase from './Pages/Purchase/Purchase'
+import AllOrders from './Pages/Dashboard/AllOrders/AllOrders';
+import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
+import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import AddNewReview from './Pages/Dashboard/AddNewReview/AddNewReview';
+import Blog from './Pages/Blog/Blog';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
+import Payment from './Pages/Payment/Payment'
+
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div  >
+      <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/blogs" element={<Blog />} />
-        <Route path="/my-portfolio" element={<MyPortfolio />} />
-        <Route path="/all-products" element={<AllProduct />} />
-        <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        
+        <Route path="blog" element={<Blog />} />
+        <Route path="MyPortfolio" element={<MyPortfolio></MyPortfolio>} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="addreview" element={<AddAReview />}></Route>
+        <Route
+          path="/product/:productId"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
+        <Route path="/payment/:paymentId" element={<Payment/>} />
+
         <Route path="dashboard" element={
           <RequireAuth>
             <Dashboard></Dashboard>
@@ -48,33 +59,22 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
 
           <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
-          <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
 
 
-          <Route path="allorders" element={<RequireAdmin><AllOrder /></RequireAdmin>}></Route>
+          <Route path="allorders" element={<AllOrders />}></Route>
 
-          <Route path="manageproducts" element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
-          <Route path="myorders" element={<></>}></Route>
-          {/* {/ <Route path="addreview" element={<AddAReview></AddAReview>}></Route> /} */}
+          <Route path="manageproducts" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+          <Route path="myorders" element={<MyOrders></MyOrders>}></Route>
           <Route path="addreview" element={<AddNewReview></AddNewReview>}></Route>
           <Route path="addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
 
 
         </Route>
 
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
-        <Route
-          path="/product/:productId"
-          element={
-            <RequireAuth>
-              <Purchase />
-            </RequireAuth>
-          }
-        />
-        <Route path="/payment/:paymentId" element={<Payment/>} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer></Footer>
     </div>
   );
 }

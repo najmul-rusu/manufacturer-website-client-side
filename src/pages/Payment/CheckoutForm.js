@@ -13,7 +13,7 @@ const CheckoutForm = (product) => {
     const { _id, price, patient, patientName } = product;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://shielded-retreat-18256.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -51,9 +51,9 @@ const CheckoutForm = (product) => {
   }
 
     return (
-      <>
-      <form onSubmit={handleSubmit}>
-        <CardElement
+      <div className="lg:mt-10">
+      <form className="border-2 p-10" onSubmit={handleSubmit}>
+        <CardElement className="border-2 p-3"
           options={{
             style: {
               base: {
@@ -69,14 +69,14 @@ const CheckoutForm = (product) => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe || !clientSecret}>
+        <button className="py-2 px-10 bg-primary text-white mt-10" type="submit" disabled={!stripe || !clientSecret}>
           Pay
         </button>
       </form>
       {
           cardError && <p className="text-red-500">{cardError}</p>
       }
-      </>
+      </div>
     );
 
 };

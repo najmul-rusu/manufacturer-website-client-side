@@ -12,7 +12,7 @@ const ShowManageProducts = ({ product, setManageProduct }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you Sure?");
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://shielded-retreat-18256.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -40,8 +40,8 @@ const ShowManageProducts = ({ product, setManageProduct }) => {
         <p className="card-text pb-4">{description}</p>
         <label
           onClick={() => handleDelete(_id)}
-          for="delete-modal"
-          class="btn bg-primary font-bold border-none text-white"
+          htmlFor="delete-modal"
+          className="btn bg-primary font-bold border-none text-white"
         >
           DELETE PRODUCT
         </label>

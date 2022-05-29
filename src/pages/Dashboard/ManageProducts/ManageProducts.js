@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductsData from '../../../hook/ProductsData';
-import DeleteProduct from './DeleteProduct'
+import AllProductData from '../../../hooks/AllProductData';
+import DeleteProduct from './DeleteProduct';
 
 const ManageProducts = ({ refetch }) => {
-    const [products] = ProductsData();
+    const [products] = AllProductData();
 
     return (
         <div>

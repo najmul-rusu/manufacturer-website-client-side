@@ -9,7 +9,7 @@ const MyPortfolio = () => {
           <div>
             <div className="avatar pb-12 pt-4">
               <div className="w-48  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src={img} />
+                <img src={img} alt=''/>
               </div>
             </div>
             <h2 className="text-xl font-bold ">
@@ -20,7 +20,7 @@ const MyPortfolio = () => {
               <a href="mailto:123abunaem@gmail.com">nhrusu@gmail.com</a>
             </p>
             <p>
-              Phone: <a href="tel:+880 1874632355">+880 1874-632355</a>
+              Phone: <a href="tel:+880 1874632355">+880 1758 677812</a>
             </p>
           </div>
         </div>

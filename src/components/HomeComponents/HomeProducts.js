@@ -1,11 +1,11 @@
 import React from 'react';
-import ProductsData from '../../hook/ProductsData';
+import AllProductData from '../../hooks/AllProductData'
 import ShowProducts from '../Products/ShowProducts';
 import SectionTitle from '../Title/SectionTitle';
 
 const HomeProducts = () => {
     
-    const [products] = ProductsData();
+    const [products] = AllProductData();
     
     return (
       <div className="lg:px-12">

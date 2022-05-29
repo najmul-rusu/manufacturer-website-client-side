@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import Loading from '../../Shared/Loading';
+import Loading from '../../Shared/Loading/Loading';
 import UserRow from '../UserRow/UserRow'
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://mighty-beach-10745.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,11 +16,11 @@ const Users = () => {
     return (
         <div className='px-12 mx-auto'>
             <h2 className="text-2xl m-2">All Users: {users.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
-
+                            
                             <th>Users Email</th>
                             <th>Role</th>
 

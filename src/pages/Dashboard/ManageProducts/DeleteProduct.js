@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProductsData from '../../../hook/ProductsData';
+import AllProductData from '../../../hooks/AllProductData';
 
 const DeleteProduct = ({ product, refetch }) => {
-    const [products, setProduct] = ProductsData();
+    const [products, setProduct] = AllProductData();
     const navigate = useNavigate();
 
     const handleDelete = id => {

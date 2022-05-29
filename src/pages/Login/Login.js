@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
-import useToken from '../../hook/useToken';
+import useToken from '../../hooks/useToken';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
+
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
@@ -57,6 +58,7 @@ const Login = () => {
     }
     return (
         <div className='flex h-screen justify-center items-center'>
+
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
@@ -91,6 +93,9 @@ const Login = () => {
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+
+
+
                             </label>
                         </div>
 
@@ -128,7 +133,7 @@ const Login = () => {
 
                         <input className='btn  w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-                    <p><small>New To EveDiva? <Link className='text-blue' to="/register">Create New Account</Link></small></p>
+                    <p><small>New To MF Gimbal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
 
                     <div className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-accent">Continue With Google</button>

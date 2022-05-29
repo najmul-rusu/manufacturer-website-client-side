@@ -14,7 +14,7 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
         const img = e.target.img.value
         const profile = { age, institute, presentAddress, parmanentAddress, img };
 
-        fetch(`https://mighty-beach-10745.herokuapp.com/profile/${user?.email}`, {
+        fetch(`https://shielded-retreat-18256.herokuapp.com/profile/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -35,7 +35,7 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
             <input type="checkbox" id="profileModal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label for="profileModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="profileModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form className="flex flex-col w-full pt-6" onSubmit={handleProfile}>
                         <input
                             type="text"
