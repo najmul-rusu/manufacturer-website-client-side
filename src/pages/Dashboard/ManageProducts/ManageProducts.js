@@ -9,7 +9,7 @@ const ManageProducts = ({ refetch }) => {
         <div>
             <h2 className="text-2xl">All Products</h2>
             <div class="overflow-x-auto">
-                <table class="table w-full">
+                <table className="table w-full">
                     <thead>
                         <tr>
 

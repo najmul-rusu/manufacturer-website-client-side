@@ -1,11 +1,19 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+
+        swal({
+            title: "Good job!",
+            text: "Congratulations your product added",
+            icon: "success",
+            button: "OK",
+          });
+
         const url = `http://localhost:5000/addproduct`;
         fetch(url, {
             method: 'POST',

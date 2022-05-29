@@ -4,6 +4,7 @@ import Banner from '../../../components/HomeComponents/Banner'
 import CallToAction from '../../../components/HomeComponents/CallToAction'
 import HomeProducts from '../../../components/HomeComponents/HomeProducts'
 import BusinessSummery from '../../../components/HomeComponents/BusinessSummery'
+import Review from '../../../Pages/Review/Review'
 
 
 const Home = () => {
@@ -14,8 +15,8 @@ const Home = () => {
             <CallToAction/>
             <HomeProducts/>
             <BusinessSummery/>
-            {/* <HomeReviews/>
-            <Review/> */}
+            {/* <HomeReviews/> */}
+            <Review/>
         </div>
     );
 };

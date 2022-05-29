@@ -1,106 +1,112 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
-import { useQuery } from 'react-query';
-import { toast } from 'react-toastify';
-import auth from '../../../firebase.init';
-import Loading from '../../Shared/Loading/Loading';
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import swal from "sweetalert";
+import auth from "../../../firebase.init";
 
 const AddNewReview = () => {
-    const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    // const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const { register, handleSubmit } = useForm();
 
-    // //load user
-    const { data, isLoading } = useQuery('user', () => fetch(`https://mighty-beach-10745.herokuapp.com/reviews`, {
-        method: 'GET',
-        headers: {
-            'authorization': `Bearer ${localStorage.getItem("accessToken")}`
-        }
-    }).then(res => res.json()))
+  const onSubmit = (data) => {
+    swal({
+      title: "Good job!",
+      text: "Thanks for your feedback",
+      icon: "success",
+      button: "OK",
+    });
 
-    // const handleReview = e => {
-    //     e.preventDefault();
-    //     const name = data?.name;
-    //     const email = data?.email;
-    //     const img = data?.img;
-    //     const rating = e.target.rating.value;
-    //     const feedback = e.target.feedback.value;
+    const url = `http://localhost:5000/review`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
+  return (
+    <div className="flex mx-auto">
+      <form
+        className="sm:max-w-sm md:max-w-md lg:max-w-lg shadow-xl p-6 rounded-lg"
+        id="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h1 className="text-xl">Add Your </h1>
+        {/* 
+                <div className="w-10 rounded-xl">
+                        <img src={user?.photoURL || "https://api.lorem.space/image/face?hash=64318"} {...register("img")} alt="img" />
 
-    //     const review = {
-    //         name,
-    //         email,
-    //         img,
-    //         rating,
-    //         feedback
-    //     }
-    //     fetch('https://mighty-beach-10745.herokuapp.com/reviews', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json',
-    //             'authorization': `Bearer ${localStorage.getItem("accessToken")}`
-    //         },
-    //         body: JSON.stringify(review)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.acknowledged) {
-    //                 e.target.reset();
-    //                 toast.success("Thanks for your feedback!")
-    //             }
-    //         })
+                    </div> */}
+
+        <input className="hidden" value={user?.photoURL || "https://api.lorem.space/image/face?hash=64318"} {...register("img")} alt="img" name="img" {...register("img")}/>
+
+        <input
+          type="text"
+          name="name"
+          value={user?.displayName}
+          placeholder={user?.displayName}
+          className="input input-bordered w-full mt-3"
+          {...register("name")}
+        />
+
+        <input
+          type="text"
+          name="email"
+          value={user?.email}
+          placeholder={user?.email}
+          className="input input-bordered w-full my-6"
+          {...register("email")}
+        />
+        {/* <input type="number" name='rating' placeholder="Rating" className="input input-bordered w-full mb-3"
+                
+
+                 {...register('rating', {
+
+                    required: {
+                        value: true,
+                        message: 'rating is Required'
+                    },
+                    minLength: {
+                        value: 5,
+                        message: 'rating must be one to five'
+                    }
+                })}
+                 
 
 
+                 /> */}
 
-    // }
-
-    const onSubmit = e => {
-
-        const doctor = {
-            name: data.name,
-            email: data.email,
-
-
-        }
-
-        fetch('https://mighty-beach-10745.herokuapp.com/reviews', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify(doctor)
-        })
-            .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
-                    toast.success('Doctor added successfully')
-                    reset();
-                }
-                else {
-                    toast.error('Failed to add the doctor');
-                }
-            })
-    }
-
-    if (isLoading) {
-        return <Loading />
-    }
-    return (
-        <div className="flex justify-center h-[60vh] items-center">
-            
-            <div>
-                <h2 className="text-2xl">Add a New Doctor</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
-
-                    <input type="text" className="input w-full input-bordered" value={data?.name} />
-                    <input type="email" className="input w-full input-bordered my-3" value={data?.email} />
-
-                    <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
-                </form>
-            </div>
-
-        </div>
-    );
+        <select
+          name="rating"
+          className="input w-full input-bordered"
+          {...register("rating")}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <textarea
+          type="text"
+          name="description"
+          placeholder="Type your feedback"
+          className="textarea textarea-bordered w-full mb-3"
+          {...register("reviewTitle")}
+        />
+        <input
+          type="submit"
+          value="Add Review"
+          className="btn btn-primary w-full text-white"
+        />
+      </form>
+    </div>
+  );
 };
 
 export default AddNewReview;

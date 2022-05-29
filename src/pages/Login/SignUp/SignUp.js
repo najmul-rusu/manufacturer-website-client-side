@@ -28,20 +28,14 @@ const SignUp = () => {
     //user info save krbo
     const [token] = useToken(user || gUser);
 
-
-
-
-
     let signInError;
     if (error || gError || updating) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small> </p>
     }
 
     const onSubmit = async data => {
-        console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
-        console.log('updated');
         // navigate('/home')
     }
 
@@ -49,7 +43,6 @@ const SignUp = () => {
         return <Loading></Loading>
     }
     if (gUser || user) {
-        console.log(gUser || user)
     }
 
     if (token) {
@@ -64,10 +57,7 @@ const SignUp = () => {
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        {/* form */}
-
-
-                        {/* name */}
+                       
                         <div className="form-control w-full max-w-xs">
 
                             <label className="label">
@@ -96,15 +86,6 @@ const SignUp = () => {
 
                             </label>
                         </div>
-
-
-
-
-
-
-
-
-
 
 
                         {/* email */}
@@ -139,11 +120,6 @@ const SignUp = () => {
 
                             </label>
                         </div>
-
-
-
-
-
 
 
                         {/* password */}

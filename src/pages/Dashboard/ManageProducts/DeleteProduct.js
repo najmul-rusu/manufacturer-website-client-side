@@ -1,38 +1,32 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import AllProductData from '../../../hooks/AllProductData';
+import useProduct from '../../../hooks/useProduct'
 
 const DeleteProduct = ({ product, refetch }) => {
-    const [products, setProduct] = AllProductData();
-    const navigate = useNavigate();
 
-    const handleDelete = id => {
-        console.log(id);
-        const proceed = window.confirm('Are you Sure?');
-        if (proceed) {
-            const url = `https://mighty-beach-10745.herokuapp.com/product/${id}`;
-            console.log(url)
-            fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    
+  const { _id, picture, name, description, price, quantity, minimum_quantity } =
+  product;
 
-                }
-            })
+const [products, setproducts] = useProduct();
+const navigate = useNavigate();
 
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
+const handleDelete = (id) => {
+  const proceed = window.confirm("Are you Sure?");
+  if (proceed) {
+    const url = `http://localhost:5000/product/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const remaining = products.filter((product) => product._id !== id);
+        setproducts(remaining);
+      });
+  }
+};
 
-                    const remaining = products.filter(product => product._id !== id)
-                    setProduct(remaining);
-                    refetch();
-                })
-
-        }
-    }
-    // const { name, price, quantity, minimum_quantity } =
-    //     product;
     return (
         <tr>
 

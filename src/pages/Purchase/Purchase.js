@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import PageTitle from "../../components/Title/PageTitle";
 
@@ -26,6 +27,24 @@ const Purchase = () => {
     productQuantity: quantity,
   }
 
+  const { register, handleSubmit } = useForm();
+
+    const onSubmit = data => {
+
+        const url = `http://localhost:5000/addproduct`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
+    }
+
   return (
     <div className="lg:px-12 px-5">
       <PageTitle>Purchase</PageTitle>
@@ -43,7 +62,7 @@ const Purchase = () => {
             <input
               type="number"
               placeholder={minimum_quantity}
-              className="input input-bordered w-48"
+              className="input input-bordered w-48" {...register("name")}
             />
           </div>
           <p className=""><b>Price : $</b>{price}</p>
