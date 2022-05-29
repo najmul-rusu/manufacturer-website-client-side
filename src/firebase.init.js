@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDDENZKITrfFsEPgZu22KMkAz_BXC1hWM4",
-  authDomain: "evediva-manufacturer.firebaseapp.com",
-  projectId: "evediva-manufacturer",
-  storageBucket: "evediva-manufacturer.appspot.com",
-  messagingSenderId: "885200391514",
-  appId: "1:885200391514:web:ca75a3a8df5a33162c7763"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDERID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase

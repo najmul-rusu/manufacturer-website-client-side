@@ -9,14 +9,14 @@ const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const [openModal, setOpenModal] = useState(false);
 
-    // const { data: user, isLoading, refetch } = useQuery('user', () => fetch('https://shielded-retreat-18256.herokuapp.com/user', {
+    // const { data: user, isLoading, refetch } = useQuery('user', () => fetch('http://localhost:5000/user', {
     //     method: 'GET',
     //     headers: {
     //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
     //     }
     // }).then(res => res.json()));
 
-    const { data: dbuser, isLoading, refetch } = useQuery(['user', user?.email], () => fetch(`https://shielded-retreat-18256.herokuapp.com/user/${user?.email}`).then(res => res.json()))
+    const { data: dbuser, isLoading, refetch } = useQuery(['user', user?.email], () => fetch(`http://localhost:5000/user/${user?.email}`).then(res => res.json()))
 
     if (dbuser) {
         console.log(dbuser);
