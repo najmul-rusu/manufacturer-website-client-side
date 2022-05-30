@@ -93,7 +93,7 @@ const AddNewReview = ({ review, setReview, refetch }) => {
                             Review
                         </label>
                         <input
-                            className="shadow appearance-none border rounded w-full py-8 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-full py-8 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-4"
                             id="textarea"
                             type="textarea"
                             placeholder="Type Here"

@@ -75,7 +75,7 @@ const AddNewReview = () => {
           type="text"
           name="description"
           placeholder="Type your feedback"
-          className="textarea textarea-bordered w-full mb-3"
+          className="textarea textarea-bordered w-full my-4"
           {...register("reviewTitle")}
         />
         <input

@@ -9,7 +9,7 @@ const Reviews = () => {
         fetch('https://shielded-retreat-18256.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
-    })
+    },[])
 
 
     return (
