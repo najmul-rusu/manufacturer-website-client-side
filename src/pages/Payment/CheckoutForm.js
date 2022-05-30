@@ -12,8 +12,8 @@ const CheckoutForm = (product) => {
 
     const { _id, price, patient, patientName } = product;
 
-    useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+    /* useEffect(() => {
+        fetch('https://shielded-retreat-18256.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -28,7 +28,7 @@ const CheckoutForm = (product) => {
                 }
             });
 
-    }, [price])
+    }, [price]) */
 
   const handleSubmit = async (event) => {
     event.preventDefault();

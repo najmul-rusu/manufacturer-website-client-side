@@ -9,7 +9,7 @@ const AddAReview = () => {
     // const [user] = useAuthState(auth);
 
     // //load user
-    // const { data, isLoading } = useQuery('user', () => fetch(`http://localhost:5000/user/${user?.email}`, {
+    // const { data, isLoading } = useQuery('user', () => fetch(`https://shielded-retreat-18256.herokuapp.com/user/${user?.email}`, {
     //     method: 'GET',
     //     headers: {
     //         'authorization': `Bearer ${localStorage.getItem("accessToken")}`
@@ -27,7 +27,7 @@ const AddAReview = () => {
     //         rating,
     //         content
     //     }
-    //     fetch('http://localhost:5000/reviews', {
+    //     fetch('https://shielded-retreat-18256.herokuapp.com/reviews', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json',

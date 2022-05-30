@@ -14,7 +14,7 @@ const Payment = () => {
     const [res, setRes] = useState({});
 
     useEffect(() => {
-      const url = `http://localhost:5000/product/${paymentId}`;
+      const url = `https://shielded-retreat-18256.herokuapp.com/product/${paymentId}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setProduct(data));

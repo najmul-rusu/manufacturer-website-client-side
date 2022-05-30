@@ -16,7 +16,7 @@ const AddNewReview = () => {
       button: "OK",
     });
 
-    const url = `http://localhost:5000/review`;
+    const url = `https://shielded-retreat-18256.herokuapp.com/review`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -36,12 +36,8 @@ const AddNewReview = () => {
         id="form"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-xl">Add Your </h1>
-        {/* 
-                <div className="w-10 rounded-xl">
-                        <img src={user?.photoURL || "https://api.lorem.space/image/face?hash=64318"} {...register("img")} alt="img" />
-
-                    </div> */}
+        <h1 className="text-xl">Add Your Feedback</h1>
+        
 
         <input className="hidden" value={user?.photoURL || "https://api.lorem.space/image/face?hash=64318"} {...register("img")} alt="img" name="img" {...register("img")}/>
 
@@ -62,24 +58,7 @@ const AddNewReview = () => {
           className="input input-bordered w-full my-6"
           {...register("email")}
         />
-        {/* <input type="number" name='rating' placeholder="Rating" className="input input-bordered w-full mb-3"
-                
-
-                 {...register('rating', {
-
-                    required: {
-                        value: true,
-                        message: 'rating is Required'
-                    },
-                    minLength: {
-                        value: 5,
-                        message: 'rating must be one to five'
-                    }
-                })}
-                 
-
-
-                 /> */}
+       
 
         <select
           name="rating"

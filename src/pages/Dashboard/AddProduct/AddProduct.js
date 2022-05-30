@@ -14,7 +14,7 @@ const AddProduct = () => {
             button: "OK",
           });
 
-        const url = `http://localhost:5000/addproduct`;
+        const url = `https://shielded-retreat-18256.herokuapp.com/addproduct`;
         fetch(url, {
             method: 'POST',
             headers: {

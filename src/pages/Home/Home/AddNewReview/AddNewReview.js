@@ -22,7 +22,7 @@ const AddNewReview = ({ review, setReview, refetch }) => {
             rating: event.target.rating.value
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://shielded-retreat-18256.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

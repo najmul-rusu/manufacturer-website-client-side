@@ -14,7 +14,7 @@ const ProfileUpdateModal = ({ setOpenModal, refetch }) => {
         const img = e.target.img.value
         const profile = { age, institute, presentAddress, parmanentAddress, img };
 
-        fetch(`http://localhost:5000/profile/${user?.email}`, {
+        fetch(`https://shielded-retreat-18256.herokuapp.com/profile/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import PageTitle from "../../components/Title/PageTitle";
+import auth from "../../firebase.init";
 
 const Purchase = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [res, setRes] = useState({});
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://shielded-retreat-18256.herokuapp.com/product/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -31,7 +34,7 @@ const Purchase = () => {
 
     const onSubmit = data => {
 
-        const url = `http://localhost:5000/addproduct`;
+        const url = `https://shielded-retreat-18256.herokuapp.com/addproduct`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -74,7 +77,9 @@ const Purchase = () => {
             </label>
             <input
               type="text" name="name"
-              className="input input-bordered" placeholder="Enter Your Name" 
+              className="input input-bordered" 
+              value= {user?.displayName} 
+              placeholder={user?.displayName} 
             />
           </div>
           <div className="form-control">
@@ -83,7 +88,8 @@ const Purchase = () => {
             </label>
             <input
               type="email"
-              placeholder="Enter Your Email"
+              value={user?.email}
+              placeholder={user?.email}
               className="input input-bordered"
             />
           </div>
