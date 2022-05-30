@@ -7,7 +7,7 @@ const useProduct = () => {
         fetch('https://shielded-retreat-18256.herokuapp.com/product/')
             .then(res => res.json())
             .then(data => setProduct(data));
-    }, [product, setProduct]);
+    }, []);
     return [product, setProduct]
   };
 
